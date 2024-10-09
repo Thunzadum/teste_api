@@ -24,3 +24,5 @@ server.use('/', ApiRoute);
 server.listen(process.env.PORT, () => {
     console.log('Servidor rodando....');
 });
+
+//MONGOURL=mongodb+srv://showlimashow1977:H35Kjr1RdMKAbMJX@cluster0.ubsu7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
