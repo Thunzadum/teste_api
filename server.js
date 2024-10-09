@@ -12,6 +12,10 @@ server.use('/ola', (req, res) => {
     res.send('Olá Daniel!');
 });
 
+server.use('/', (req, res) => {
+    res.send('Olá!');
+});
+
 server.listen(process.env.PORT, () => {
     console.log('Servidor rodando....');
 });
