@@ -21,6 +21,6 @@ server.use(express.urlencoded({extended: true}));
 
 server.use('/', ApiRoute);
 
-server.listen(process.env.PORT, () => {
+server.listen(process.env.MONGOURL, () => {
     console.log('Servidor rodando....');
 });
