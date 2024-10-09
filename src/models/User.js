@@ -1,9 +1,10 @@
 const mongoose = require ('mongoose');
 const modelSchema = new mongoose.Schema({
     email: String,
-    nome: String,
+    nick: String,
     passwordHash: String,
-    score: Number,
+    moedas: Number,
+    videos: Number,
 });
 
 const modelName = 'Users';

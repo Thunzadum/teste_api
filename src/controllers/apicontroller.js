@@ -9,9 +9,10 @@ module.exports = {
     signup: async(req, res) => {
         let{
             email,
-            nome,
+            nick,
             password,
-            score
+            moedas,
+            videos
         } = req.body;
 
         const userExist = await User.findOne({email});
@@ -26,9 +27,10 @@ module.exports = {
         const passwordHash = await bcrypt.hash(password, 10);
         const newUser = new User({
             email,
-            nome,
+            nick,
             passwordHash,
-            score
+            moedas,
+            videos
         });
 
         const userSave = await newUser.save();
