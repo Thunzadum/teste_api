@@ -14,7 +14,7 @@ module.exports = {
             score
         } = req.body;
 
-        const userExist = await User.find({email});
+        const userExist = await User.findOne({email});
         if(userExist) {
             res.json({
                 data: [],
