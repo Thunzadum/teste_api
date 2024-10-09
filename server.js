@@ -4,7 +4,14 @@ const ApiRoute = require('./src/routes/routes');
 const server = express();
 const mongodb = require('./src/database/mongodb');
 
+const cors = require('cors');
 mongodb();
+
+server.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'DELETE', 'PUT', 'UPDATE', 'PATCH'],
+    allowedHeaders: ['Content-Type'],
+}));
 
 server.use(express.json());
 
