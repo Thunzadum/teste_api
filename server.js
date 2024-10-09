@@ -1,13 +1,13 @@
+require('dotenv').config()
+
 const express = require('express');
 
 const server = express();
 
-var port = process.env.PORT 
-
-server.use('/ping', (req, res) => {
+server.use('/', (req, res) => {
     res.send('pong');
 });
 
-server.listen(port, () => {
+server.listen(process.env.PORT, () => {
     console.log('Servidor rodando....');
 });
