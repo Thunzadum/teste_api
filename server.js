@@ -8,6 +8,10 @@ server.use('/ping', (req, res) => {
     res.send('Pong!');
 });
 
+server.use('/ola', (req, res) => {
+    res.send('Olá Daniel!');
+});
+
 server.listen(process.env.PORT, () => {
     console.log('Servidor rodando....');
 });
