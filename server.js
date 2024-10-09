@@ -1,8 +1,13 @@
 require('dotenv').config()
-
 const express = require('express');
 
 const server = express();
+
+server.use(express.json());
+
+server.use(express.urlencoded({extended: true}));
+
+
 
 server.use('/ping', (req, res) => {
     res.send('Pong!');
