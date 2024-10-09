@@ -4,7 +4,7 @@ require('dotenv').config();
 const connectdb = async () => {
     try {
         console.log('Conectando ao mongodb...');
-        await mongoose.connect(process.env.MONGOURL);
+        await mongoose.connect(mongodb+srvshowlimashow1977H35Kjr1RdMKAbMJXretryWritestrue&wmajority&appNameCluster0);
         console.log('Mongodb conectado com sucesso');
     }catch(error) {
         console.log('Erro ao conectar ao mongodb: '+ error);
@@ -12,3 +12,5 @@ const connectdb = async () => {
 }
 
 module.exports = connectdb;
+
+//process.env.MONGOURL
