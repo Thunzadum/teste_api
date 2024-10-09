@@ -5,6 +5,10 @@ const express = require('express');
 const server = express();
 
 server.use('/', (req, res) => {
+    res.send('Olá Daniel!');
+});
+
+server.use('/ping', (req, res) => {
     res.send('pong');
 });
 
