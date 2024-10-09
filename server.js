@@ -2,7 +2,7 @@ const express = require('express');
 
 const server = express();
 
-server.use('/ping', (req, res) => {
+server.get('/ping', (req, res) => {
     res.send('pong');
 });
 
