@@ -5,7 +5,7 @@ const express = require('express');
 const server = express();
 
 server.use('/ping', (req, res) => {
-    res.send('Olá Daniel!');
+    res.send('Pong!');
 });
 
 server.listen(process.env.PORT, () => {
