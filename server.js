@@ -2,6 +2,9 @@ require('dotenv').config()
 const express = require('express');
 const ApiRoute = require('./src/routes/routes');
 const server = express();
+const mongodb = require('./src/database/mongodb');
+
+mongodb();
 
 server.use(express.json());
 
