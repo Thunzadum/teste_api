@@ -37,7 +37,7 @@ module.exports = {
         if(userSave) {
             res.json({
                 data: userSave,
-                msg: 'Usuário salvo com sucesso!',
+                msg: '',
                 error: ''
             });
             return;
