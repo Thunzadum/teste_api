@@ -48,7 +48,36 @@ module.exports = {
             });
             return;
         }
-    }
+    },
+    signin: async(req, res) => {
+        let {
+            email,
+            password
+        } = req.body;
+        const userExist = await User.findOne({email});
+        if(!userExist) {
+            res.json({
+                data: [],
+                msg: 'Usuário inválido',
+                error: ''
+            });
+            return;
+        }
+        const match = await bcrypt.compare(password, userExist.passwordHash);
+        if(!match) {
+            res.json({
+                data: [],
+                msg: 'Credenciais inválidas',
+                error: ''
+            });
+            return;
+        }
+        res.json({
+            data: userExist,
+            msg: ""
+            //error: ''
+        });
+    },
 }
 
 
