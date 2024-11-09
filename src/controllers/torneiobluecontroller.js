@@ -80,4 +80,49 @@ module.exports = {
             return;
         }
     },
+    score: async(req, res) => {
+        const nick = req.params.nick;
+        const newScore = req.params.score;
+        const user = await TorneioBlue.findOne({nick}).exec();
+        if(!user) {
+            res.json({
+                error: 'Usuário Inválido!'
+            });
+            return;
+        }
+
+        const id = user._id;
+        const scoreAtual = user.score;
+        if(newScore > scoreAtual || newScore < scoreAtual) {
+            const userUpdate = await TorneioBlue.findByIdAndUpdate(id, {score: newScore});
+            if(!userUpdate) {
+                res.json({error: 'Error ao realizar update!'});
+            }
+            const geraRanking = await TorneioBlue.aggregate([
+                {
+                    $setWindowFields: {
+                        sortBy: {score: -1},
+                        output: {
+                            ranking: {
+                                $rank: {}
+                            },
+                        },
+                    },
+                },
+            ]).exec();
+            geraRanking.map((user) => {
+                TorneioBlue.updateOne({_id: user._id}, {ranking: user.ranking}).exec();
+            });
+            res.json({
+                data: [],
+                msg: 'Score alterado com sucesso'
+            })
+        } else {
+            res.json({
+                data: [],
+                msg: 'Noob'
+            });
+            return;
+        }
+    },
 }
