@@ -19,7 +19,7 @@ module.exports = {
             });
             return;
         }
-        const newUser = new Torneio({
+        const newUser = new TorneioBlue({
             participantes,
             qtdparticipantes,
         });
