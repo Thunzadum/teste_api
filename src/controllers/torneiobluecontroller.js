@@ -39,5 +39,45 @@ module.exports = {
             });
             return;
         }
-    }
+    },
+    jogador: async(req, res) => {
+        let {
+            nick,
+            qtdregistroTB,
+            score,
+            ranking,
+        } = req.body;
+
+
+        const userExist = await TorneioBlue.findOne({ nick });
+        if(userExist) {
+            res.json({
+                data: [],
+                error: 'Usuário inválido'
+            });
+            return;
+        }
+        const newUser = new TorneioBlue({
+            nick,
+            qtdregistroTB,
+            score,
+            ranking,
+        });
+
+        const userSave = await newUser.save();
+        if(userSave) {
+            res.json({
+                data: userSave,
+                msg: "",
+                //error: ''
+            });
+            return;
+        } else {
+            res.json({
+                data: [],
+                error: 'Erro ao salvar usuário'
+            });
+            return;
+        }
+    },
 }
