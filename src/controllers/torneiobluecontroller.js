@@ -172,4 +172,20 @@ module.exports = {
             torneioblueInfoqtdparticipantes
         });
     },
+    infoqtdregistroTB: async(req, res) => {
+        const nick = req.params.nick;
+        const torneioblueInfoqtdregistroTB = await TorneioBlue.findOne({nick})
+        .select({qtdregistroTB: 1, _id: 0})
+        .exec();
+        if(!torneioblueInfoqtdregistroTB) {
+            res.json({
+                data: [],
+                error: 'Registro nao encontrado'
+            });
+            return;
+        }
+        res.json({
+            torneioblueInfoqtdregistroTB
+        });
+    },
 }
