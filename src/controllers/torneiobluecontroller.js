@@ -188,4 +188,34 @@ module.exports = {
             torneioblueInfoqtdregistroTB
         });
     },
+    qtdregistroTB: async(req, res) => {
+        const nick = req.params.nick;
+        const newQtdregistroTB= req.params.qtdregistroTB;
+        const torneioblue = await TorneioBlue.findOne({nick}).exec();
+        if(!torneioblue) {
+            res.json({
+                error: 'Usuário Inválido!'
+            });
+            return;
+        }
+
+        const id = torneioblue._id;
+        const qtdregistroTBAtual = torneioblue.qtdregistroTB;
+        if(newQtdregistroTB > qtdregistroTBAtual || newQtdregistroTB < qtdregistroTBAtual) {
+            const torneioblueUpdate = await TorneioBlue.findByIdAndUpdate(id, {qtdregistroTB: newQtdregistroTB});
+            if(!torneioblueUpdate) {
+                res.json({error: 'Error ao realizar update!'});
+            }
+            res.json({
+                data: [],
+                msg: 'QtdregistroT1 alterado com sucesso'
+            })
+        } else {
+            res.json({
+                data: [],
+                msg: ''
+            });
+            return;
+        }
+    },
 }
