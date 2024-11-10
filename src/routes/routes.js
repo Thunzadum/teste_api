@@ -27,7 +27,7 @@ router.post('/jogador', torneiobluecontroller.jogador);
 router.post('/qtdjogador', torneiobluecontroller.qtdjogador);
 
 router.put('/user/:nick/score/:score', torneiobluecontroller.score);
-//router.put('/torneioblue/:participantes/qtdparticipantes/:qtdparticipantes', torneiobluecontroller.qtdparticipantes);
+router.put('/torneioblue/:participantes/qtdparticipantes/:qtdparticipantes', torneiobluecontroller.qtdparticipantes);
 
 //#endregion
 

@@ -125,4 +125,34 @@ module.exports = {
             return;
         }
     },
+    qtdparticipantes: async(req, res) => {
+        const participantes = req.params.participantes;
+        const newQtdparticipantes= req.params.qtdparticipantes;
+        const torneioblue = await TorneioBlue.findOne({participantes}).exec();
+        if(!torneioblue) {
+            res.json({
+                error: 'Usuário Inválido!'
+            });
+            return;
+        }
+
+        const id = torneioblue._id;
+        const qtdparticipantesAtual = torneioblue.qtdparticipantes;
+        if(newQtdparticipantes > qtdparticipantesAtual || newQtdparticipantes < qtdparticipantesAtual) {
+            const torneioblueUpdate = await TorneioBlue.findByIdAndUpdate(id, {qtdparticipantes: newQtdparticipantes});
+            if(!torneioblueUpdate) {
+                res.json({error: 'Error ao realizar update!'});
+            }
+            res.json({
+                data: [],
+                msg: 'Qtdparticipantes alterado com sucesso'
+            })
+        } else {
+            res.json({
+                data: [],
+                msg: 'Noob'
+            });
+            return;
+        }
+    },
 }
