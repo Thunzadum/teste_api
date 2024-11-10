@@ -25,14 +25,14 @@ router.delete('/delete/:nick', apicontroller.delete);
 
 router.get('/infoqtdparticipantes/:participantes', torneiobluecontroller.infoqtdparticipantes);
 router.get('/infoqtdregistroTB/:nick', torneiobluecontroller.infoqtdregistroTB);
-router.put('/torneioblue/:nick/qtdregistroTB/:qtdregistroTB', torneiobluecontroller.qtdregistroTB);
+
 
 router.post('/jogador', torneiobluecontroller.jogador);
 router.post('/qtdjogador', torneiobluecontroller.qtdjogador);
 
 router.put('/user/:nick/score/:score', torneiobluecontroller.score);
 router.put('/torneioblue/:participantes/qtdparticipantes/:qtdparticipantes', torneiobluecontroller.qtdparticipantes);
-
+router.put('/torneioblue/:nick/qtdregistroTB/:qtdregistroTB', torneiobluecontroller.qtdregistroTB);
 //#endregion
 
 module.exports = router;
