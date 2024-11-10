@@ -155,4 +155,21 @@ module.exports = {
             return;
         }
     },
+    infoqtdparticipantes: async(req, res) => {
+
+        const participantes = req.params.participantes;
+        const torneioblueInfoqtdparticipantes = await TorneioBlue.findOne({participantes})
+        .select({qtdparticipantes: 1, _id: 0})
+        .exec();
+        if(!torneioblueInfoqtdparticipantes) {
+            res.json({
+                data: [],
+                error: 'Torneio nao encontrado'
+            });
+            return;
+        }
+        res.json({
+            torneioblueInfoqtdparticipantes
+        });
+    },
 }

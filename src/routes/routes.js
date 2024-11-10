@@ -23,6 +23,8 @@ router.delete('/delete/:nick', apicontroller.delete);
 
 //#region ######################### ROTAS TORNEIO_BLUE CONTROLLER
 
+router.get('/infoqtdparticipantes/:participantes', torneiobluecontroller.infoqtdparticipantes);
+
 router.post('/jogador', torneiobluecontroller.jogador);
 router.post('/qtdjogador', torneiobluecontroller.qtdjogador);
 
