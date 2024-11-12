@@ -174,6 +174,23 @@ module.exports = {
             torneioblueInfoqtdparticipantes
         });
     },
+    inforankingparticipantes: async(req, res) => {
+
+        const participantes = req.params.participantes;
+        const torneioblueInforankingparticipantes = await TorneioBlue.findOne({participantes})
+        .select({ranking: 1, _id: 0})
+        .exec();
+        if(!torneioblueInforankingparticipantes) {
+            res.json({
+                data: [],
+                error: 'Torneio nao encontrado'
+            });
+            return;
+        }
+        res.json({
+            torneioblueInforankingparticipantes
+        });
+    },
     infoqtdregistroTB: async(req, res) => {
         const nick = req.params.nick;
         const torneioblueInfoqtdregistroTB = await TorneioBlue.findOne({nick})
