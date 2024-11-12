@@ -188,6 +188,22 @@ module.exports = {
             torneioblueInfoqtdregistroTB
         });
     },
+    inforankingTB: async(req, res) => {
+        const nick = req.params.nick;
+        const torneioblueInforankingTB = await TorneioBlue.findOne({nick})
+        .select({ranking: 1, _id: 0})
+        .exec();
+        if(!torneioblueInforankingTB) {
+            res.json({
+                data: [],
+                error: 'Registro nao encontrado'
+            });
+            return;
+        }
+        res.json({
+            torneioblueInforankingTB
+        });
+    },
     qtdregistroTB: async(req, res) => {
         const nick = req.params.nick;
         const newQtdregistroTB= req.params.qtdregistroTB;

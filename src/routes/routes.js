@@ -25,6 +25,7 @@ router.delete('/delete/:nick', apicontroller.delete);
 
 router.get('/infoqtdparticipantes/:participantes', torneiobluecontroller.infoqtdparticipantes);
 router.get('/infoqtdregistroTB/:nick', torneiobluecontroller.infoqtdregistroTB);
+router.get('/inforankingTB/:nick', torneiobluecontroller.inforankingTB);
 
 
 router.post('/jogador', torneiobluecontroller.jogador);
