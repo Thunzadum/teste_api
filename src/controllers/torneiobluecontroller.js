@@ -8,6 +8,7 @@ module.exports = {
         let {
             participantes,
             qtdparticipantes,
+            ranking,
         } = req.body;
 
 
@@ -22,6 +23,7 @@ module.exports = {
         const newUser = new TorneioBlue({
             participantes,
             qtdparticipantes,
+            ranking,
         });
 
         const userSave = await newUser.save();
