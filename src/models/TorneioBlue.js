@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 const modelSchema = new mongoose.Schema({
     participantes: String,
-    //email: String,
-    //passwordHash: String,
     nick: String,
     qtdregistroTB: Number,
     score: Number,
