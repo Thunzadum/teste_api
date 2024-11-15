@@ -15,6 +15,7 @@ module.exports = {
             password,
             moedas,
             videos,
+            tbregistro,
             //score,
             //ranking,
             //timeGame
@@ -39,6 +40,7 @@ module.exports = {
             passwordHash,
             moedas,
             videos,
+            tbregistro,
             //score,
             //ranking,
             //timeGame
@@ -149,6 +151,36 @@ module.exports = {
             return;
         }
     },
+    tbregistro: async(req, res) => {
+        const nick = req.params.nick;
+        const newTbregistro = req.params.tbregistro;
+        const user = await User.findOne({nick}).exec();
+        if(!user) {
+            res.json({
+                error: 'Usuário Inválido!'
+            });
+            return;
+        }
+
+        const id = user._id;
+        const tbregistroAtual = user.tbregistro;
+        if(newTbregistro > tbregistroAtual || newTbregistro < tbregistroAtual) {
+            const userUpdate = await User.findByIdAndUpdate(id, {tbregistro: newTbregistro});
+            if(!userUpdate) {
+                res.json({error: 'Error ao realizar update!'});
+            }
+            res.json({
+                data: [],
+                msg: 'TBregistro alterado com sucesso'
+            })
+        } else {
+            res.json({
+                data: [],
+                msg: ''
+            });
+            return;
+        }
+    },
     delete: function(req, res, next){
         var query = { nick: req.params.nick}
         var value = req.body;
@@ -196,6 +228,22 @@ module.exports = {
         const nick = req.params.nick;
         const userInfo = await User.findOne({nick})
         .select({videos: 1, _id: 0})
+        .exec();
+        if(!userInfo) {
+            res.json({
+                data: [],
+                error: 'Usuario nao encontrado'
+            });
+            return;
+        }
+        res.json({
+            userInfo
+        });
+    },
+    infotbregistro: async(req, res) => {
+        const nick = req.params.nick;
+        const userInfo = await User.findOne({nick})
+        .select({tbregistro: 1, _id: 0})
         .exec();
         if(!userInfo) {
             res.json({

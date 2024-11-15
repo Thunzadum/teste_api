@@ -5,6 +5,7 @@ const modelSchema = new mongoose.Schema({
     passwordHash: String,
     moedas: Number,
     videos: Number,
+    tbregistro: Number,
 });
 
 const modelName = 'Users';

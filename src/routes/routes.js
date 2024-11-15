@@ -9,6 +9,7 @@ router.get('/ping', apicontroller.ping);
 router.get('/info/:email', apicontroller.info);
 router.get('/infomoedas/:nick', apicontroller.infomoedas);
 router.get('/infovideos/:nick', apicontroller.infovideos);
+router.get('/infotbregistro/:nick', apicontroller.infotbregistro);
 router.get('/user/:nome', apicontroller.info);
 router.get('/highscore', apicontroller.highscore);
 
@@ -17,6 +18,7 @@ router.post('/signin', apicontroller.signin);
 
 router.put('/update/:id', apicontroller.update);
 router.put('/user/:nick/moedas/:moedas', apicontroller.moedas);
+router.put('/user/:nick/tbregistro/:tbregistro', apicontroller.tbregistro);
 
 router.delete('/delete/:nick', apicontroller.delete);
 //#endregion
