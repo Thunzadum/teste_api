@@ -8,7 +8,7 @@ module.exports = {
         let {
             participantes,
             qtdparticipantes,
-            ranking,
+            ranking
         } = req.body;
 
 
