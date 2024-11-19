@@ -1,6 +1,7 @@
 const express = require('express');
 const apicontroller = require('../controllers/apicontroller');
 const torneiobluecontroller = require('../controllers/torneiobluecontroller');
+const receitacontroller = require('../controllers/receitacontroller');
 const router = express.Router();
 
 
@@ -21,6 +22,10 @@ router.put('/user/:nick/moedas/:moedas', apicontroller.moedas);
 router.put('/user/:nick/tbregistro/:tbregistro', apicontroller.tbregistro);
 
 router.delete('/delete/:nick', apicontroller.delete);
+//#endregion
+
+//#region ######################### ROTAS RECEITAS CONTROLLER
+router.post('/receitaTotal', receitacontroller.receitaGeral);
 //#endregion
 
 //#region ######################### ROTAS TORNEIO_BLUE CONTROLLER
