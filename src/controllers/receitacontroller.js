@@ -58,5 +58,21 @@ module.exports = {
             return;
         }
     },
+    infobrutoGames: async(req, res) => {
 
+        const receitaTotal = req.params.receitaTotal;
+        const inforeceitabrutoGames = await Receita.findOne({receitaTotal})
+        .select({brutoGames: 1, _id: 0})
+        .exec();
+        if(!inforeceitabrutoGames) {
+            res.json({
+                data: [],
+                error: 'Receita nao encontrada'
+            });
+            return;
+        }
+        res.json({
+            inforeceitabrutoGames
+        });
+    },
 }

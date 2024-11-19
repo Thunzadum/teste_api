@@ -25,6 +25,8 @@ router.delete('/delete/:nick', apicontroller.delete);
 //#endregion
 
 //#region ######################### ROTAS RECEITAS CONTROLLER
+router.get('/infobrutoGames/:receitaTotal', receitacontroller.infobrutoGames);
+
 router.post('/receitaTotal', receitacontroller.receitaGeral);
 //#endregion
 
