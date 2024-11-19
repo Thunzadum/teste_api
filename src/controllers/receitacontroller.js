@@ -58,6 +58,36 @@ module.exports = {
             return;
         }
     },
+    brutoGames: async(req, res) => {
+        const receitaTotal = req.params.receitaTotal;
+        const newBrutoGames= req.params.brutoGames;
+        const receita = await Receita.findOne({receitaTotal}).exec();
+        if(!receita) {
+            res.json({
+                error: 'Receita Inválida!'
+            });
+            return;
+        }
+
+        const id = receita._id;
+        const brutoGamesAtual = receita.brutoGames;
+        if(newBrutoGames > brutoGamesAtual || newBrutoGames < brutoGamesAtual) {
+            const receitaUpdate = await Receita.findByIdAndUpdate(id, {brutoGames: newBrutoGames});
+            if(!receitaUpdate) {
+                res.json({error: 'Error ao realizar update!'});
+            }
+            res.json({
+                data: [],
+                msg: 'BrutoGames alterado com sucesso'
+            })
+        } else {
+            res.json({
+                data: [],
+                msg: 'Noob'
+            });
+            return;
+        }
+    },
     infobrutoGames: async(req, res) => {
 
         const receitaTotal = req.params.receitaTotal;

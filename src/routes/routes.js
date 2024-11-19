@@ -28,6 +28,8 @@ router.delete('/delete/:nick', apicontroller.delete);
 router.get('/infobrutoGames/:receitaTotal', receitacontroller.infobrutoGames);
 
 router.post('/receitaTotal', receitacontroller.receitaGeral);
+
+router.put('/receita/:receitaTotal/brutoGames/:brutoGames', receitacontroller.brutoGames);
 //#endregion
 
 //#region ######################### ROTAS TORNEIO_BLUE CONTROLLER
