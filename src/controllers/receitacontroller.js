@@ -152,4 +152,51 @@ module.exports = {
             inforeceitabonusJackPotTB
         });
     },
+    bonusGrandeTB: async(req, res) => {
+        const receitaTotal = req.params.receitaTotal;
+        const newBonusGrandeTB= req.params.bonusGrandeTB;
+        const receita = await Receita.findOne({receitaTotal}).exec();
+        if(!receita) {
+            res.json({
+                error: 'Receita Inválida!'
+            });
+            return;
+        }
+
+        const id = receita._id;
+        const bonusGrandeTBAtual = receita.bonusGrandeTB;
+        if(newBonusGrandeTB > bonusGrandeTBAtual || newBonusGrandeTB < bonusGrandeTBAtual) {
+            const receitaUpdate = await Receita.findByIdAndUpdate(id, {bonusGrandeTB: newBonusGrandeTB});
+            if(!receitaUpdate) {
+                res.json({error: 'Error ao realizar update!'});
+            }
+            res.json({
+                data: [],
+                msg: 'BonusGrandeTB alterado com sucesso'
+            })
+        } else {
+            res.json({
+                data: [],
+                msg: 'Noob'
+            });
+            return;
+        }
+    },
+    infobonusGrandeTB: async(req, res) => {
+
+        const receitaTotal = req.params.receitaTotal;
+        const inforeceitabonusGrandeTB= await Receita.findOne({receitaTotal})
+        .select({bonusGrandeTB: 1, _id: 0})
+        .exec();
+        if(!inforeceitabonusGrandeTB) {
+            res.json({
+                data: [],
+                error: 'Receita nao encontrada'
+            });
+            return;
+        }
+        res.json({
+            inforeceitabonusGrandeTB
+        });
+    },
 }

@@ -27,11 +27,13 @@ router.delete('/delete/:nick', apicontroller.delete);
 //#region ######################### ROTAS RECEITAS CONTROLLER
 router.get('/infobrutoGames/:receitaTotal', receitacontroller.infobrutoGames);
 router.get('/infobonusJackPotTB/:receitaTotal', receitacontroller.infobonusJackPotTB);
+router.get('/infobonusGrandeTB/:receitaTotal', receitacontroller.infobonusGrandeTB);
 
 router.post('/receitaTotal', receitacontroller.receitaGeral);
 
 router.put('/receita/:receitaTotal/brutoGames/:brutoGames', receitacontroller.brutoGames);
 router.put('/receita/:receitaTotal/bonusJackPotTB/:bonusJackPotTB', receitacontroller.bonusJackPotTB);
+router.put('/receita/:receitaTotal/bonusGrandeTB/:bonusGrandeTB', receitacontroller.bonusGrandeTB);
 //#endregion
 
 //#region ######################### ROTAS TORNEIO_BLUE CONTROLLER
