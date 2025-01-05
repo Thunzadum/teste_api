@@ -105,4 +105,34 @@ module.exports = {
             inforeceitabrutoGames
         });
     },
+    bonusJackPotTB: async(req, res) => {
+        const receitaTotal = req.params.receitaTotal;
+        const newBonusJackPotTB= req.params.bonusJackPotTB;
+        const receita = await Receita.findOne({receitaTotal}).exec();
+        if(!receita) {
+            res.json({
+                error: 'Receita Inválida!'
+            });
+            return;
+        }
+
+        const id = receita._id;
+        const bonusJackPotTBAtual = receita.bonusJackPotTB;
+        if(newBonusJackPotTB > bonusJackPotTBAtual || newBonusJackPotTB < bonusJackPotTBAtual) {
+            const receitaUpdate = await Receita.findByIdAndUpdate(id, {bonusJackPotTB: newBonusJackPotTB});
+            if(!receitaUpdate) {
+                res.json({error: 'Error ao realizar update!'});
+            }
+            res.json({
+                data: [],
+                msg: 'BonusJackPotTB alterado com sucesso'
+            })
+        } else {
+            res.json({
+                data: [],
+                msg: 'Noob'
+            });
+            return;
+        }
+    },
 }

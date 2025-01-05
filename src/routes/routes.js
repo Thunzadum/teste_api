@@ -30,6 +30,7 @@ router.get('/infobrutoGames/:receitaTotal', receitacontroller.infobrutoGames);
 router.post('/receitaTotal', receitacontroller.receitaGeral);
 
 router.put('/receita/:receitaTotal/brutoGames/:brutoGames', receitacontroller.brutoGames);
+router.put('/receita/:receitaTotal/bonusJackPotTB/:bonusJackPotTB', receitacontroller.bonusJackPotTB);
 //#endregion
 
 //#region ######################### ROTAS TORNEIO_BLUE CONTROLLER
