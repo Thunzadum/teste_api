@@ -135,4 +135,21 @@ module.exports = {
             return;
         }
     },
+    infobonusJackPotTB: async(req, res) => {
+
+        const receitaTotal = req.params.receitaTotal;
+        const inforeceitabonusJackPotTB= await Receita.findOne({receitaTotal})
+        .select({bonusJackPotTB: 1, _id: 0})
+        .exec();
+        if(!inforeceitabonusJackPotTB) {
+            res.json({
+                data: [],
+                error: 'Receita nao encontrada'
+            });
+            return;
+        }
+        res.json({
+            inforeceitabonusJackPotTB
+        });
+    },
 }
