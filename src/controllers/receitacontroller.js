@@ -246,4 +246,51 @@ module.exports = {
             inforeceitabonusMedioTB
         });
     },
+    bonusMiniTB: async(req, res) => {
+        const receitaTotal = req.params.receitaTotal;
+        const newBonusMiniTB= req.params.bonusMiniTB;
+        const receita = await Receita.findOne({receitaTotal}).exec();
+        if(!receita) {
+            res.json({
+                error: 'Receita Inválida!'
+            });
+            return;
+        }
+
+        const id = receita._id;
+        const bonusMiniTBAtual = receita.bonusMiniTB;
+        if(newBonusMiniTB > bonusMiniTBAtual || newBonusMiniTB< bonusMiniTBAtual) {
+            const receitaUpdate = await Receita.findByIdAndUpdate(id, {bonusMiniTB: newBonusMiniTB});
+            if(!receitaUpdate) {
+                res.json({error: 'Error ao realizar update!'});
+            }
+            res.json({
+                data: [],
+                msg: 'BonusMiniTB alterado com sucesso'
+            })
+        } else {
+            res.json({
+                data: [],
+                msg: 'Noob'
+            });
+            return;
+        }
+    },
+    infobonusMiniTB: async(req, res) => {
+
+        const receitaTotal = req.params.receitaTotal;
+        const inforeceitabonusMiniTB= await Receita.findOne({receitaTotal})
+        .select({bonusMiniTB: 1, _id: 0})
+        .exec();
+        if(!inforeceitabonusMiniTB) {
+            res.json({
+                data: [],
+                error: 'Receita nao encontrada'
+            });
+            return;
+        }
+        res.json({
+            inforeceitabonusMiniTB
+        });
+    },
 }
