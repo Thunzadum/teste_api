@@ -28,12 +28,14 @@ router.delete('/delete/:nick', apicontroller.delete);
 router.get('/infobrutoGames/:receitaTotal', receitacontroller.infobrutoGames);
 router.get('/infobonusJackPotTB/:receitaTotal', receitacontroller.infobonusJackPotTB);
 router.get('/infobonusGrandeTB/:receitaTotal', receitacontroller.infobonusGrandeTB);
+router.get('/infobonusMedioTB/:receitaTotal', receitacontroller.infobonusMedioTB);
 
 router.post('/receitaTotal', receitacontroller.receitaGeral);
 
 router.put('/receita/:receitaTotal/brutoGames/:brutoGames', receitacontroller.brutoGames);
 router.put('/receita/:receitaTotal/bonusJackPotTB/:bonusJackPotTB', receitacontroller.bonusJackPotTB);
 router.put('/receita/:receitaTotal/bonusGrandeTB/:bonusGrandeTB', receitacontroller.bonusGrandeTB);
+router.put('/receita/:receitaTotal/bonusMedioTB/:bonusMedioTB', receitacontroller.bonusMedioTB);
 //#endregion
 
 //#region ######################### ROTAS TORNEIO_BLUE CONTROLLER

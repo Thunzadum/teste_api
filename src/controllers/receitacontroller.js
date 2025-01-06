@@ -199,4 +199,51 @@ module.exports = {
             inforeceitabonusGrandeTB
         });
     },
+    bonusMedioTB: async(req, res) => {
+        const receitaTotal = req.params.receitaTotal;
+        const newBonusMedioTB= req.params.bonusMedioTB;
+        const receita = await Receita.findOne({receitaTotal}).exec();
+        if(!receita) {
+            res.json({
+                error: 'Receita Inválida!'
+            });
+            return;
+        }
+
+        const id = receita._id;
+        const bonusMedioTBAtual = receita.bonusMedioTB;
+        if(newBonusMedioTB > bonusMedioTBAtual || newBonusMedioTB < bonusMedioTBAtual) {
+            const receitaUpdate = await Receita.findByIdAndUpdate(id, {bonusMedioTB: newBonusMedioTB});
+            if(!receitaUpdate) {
+                res.json({error: 'Error ao realizar update!'});
+            }
+            res.json({
+                data: [],
+                msg: 'BonusMedioTB alterado com sucesso'
+            })
+        } else {
+            res.json({
+                data: [],
+                msg: 'Noob'
+            });
+            return;
+        }
+    },
+    infobonusMedioTB: async(req, res) => {
+
+        const receitaTotal = req.params.receitaTotal;
+        const inforeceitabonusMedioTB= await Receita.findOne({receitaTotal})
+        .select({bonusMedioTB: 1, _id: 0})
+        .exec();
+        if(!inforeceitabonusMedioTB) {
+            res.json({
+                data: [],
+                error: 'Receita nao encontrada'
+            });
+            return;
+        }
+        res.json({
+            inforeceitabonusMedioTB
+        });
+    },
 }
