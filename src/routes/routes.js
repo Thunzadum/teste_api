@@ -36,6 +36,7 @@ router.post('/receitaTotal', receitacontroller.receitaGeral);
 router.put('/receita/:receitaTotal/brutoGames/:brutoGames', receitacontroller.brutoGames);
 router.put('/receita/:receitaTotal/bonusJackPotTB/:bonusJackPotTB', receitacontroller.bonusJackPotTB);
 router.put('/receita/:receitaTotal/bonusGrandeTB/:bonusGrandeTB', receitacontroller.bonusGrandeTB);
+router.put('/receita/:receitaTotal/bonusMedioTB/:bonusMedioTB', receitacontroller.bonusMedioTB);
 router.put('/receita/:receitaTotal/bonusMiniTB/:bonusMiniTB', receitacontroller.bonusMiniTB);
 //#endregion
 
