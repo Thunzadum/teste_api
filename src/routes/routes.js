@@ -46,6 +46,7 @@ router.get('/infoqtdparticipantes/:participantes', torneiobluecontroller.infoqtd
 router.get('/inforankingparticipantes/:participantes', torneiobluecontroller.inforankingparticipantes);
 router.get('/infoqtdregistroTB/:nick', torneiobluecontroller.infoqtdregistroTB);
 router.get('/inforankingTB/:nick', torneiobluecontroller.inforankingTB);
+router.get('/infoscoreTB/:nick', torneiobluecontroller.infoscoreTB);
 
 
 router.post('/jogador', torneiobluecontroller.jogador);

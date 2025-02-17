@@ -253,4 +253,20 @@ module.exports = {
             return;
         }
     },
+    infoscoreTB: async(req, res) => {
+        const nick = req.params.nick;
+        const torneioblueInfoscoreTB = await TorneioBlue.findOne({nick})
+        .select({score: 1, _id: 0})
+        .exec();
+        if(!torneioblueInfoscoreTB) {
+            res.json({
+                data: [],
+                error: 'Registro nao encontrado'
+            });
+            return;
+        }
+        res.json({
+            torneioblueInfoscoreTB
+        });
+    },
 }
