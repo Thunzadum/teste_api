@@ -297,7 +297,7 @@ module.exports = {
         }
         res.json({
             data: rankingList,
-            //msg: 'Sucesso ao realizar a consulta'
+            msg: 'Sucesso ao realizar a consulta'
         });
     },
     rankingscore: async(req, res) => {
@@ -321,7 +321,7 @@ module.exports = {
         }
         res.json({
             data: rankingList,
-            //msg: 'Sucesso ao realizar a consulta'
+            msg: 'Sucesso ao realizar a consulta'
         });
     },
     //#endregion
