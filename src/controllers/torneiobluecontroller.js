@@ -276,7 +276,7 @@ module.exports = {
     //#region ######################### GET RANKING 01 AO 10 NAME, SCORE
 
     //#region ######################### GET RANKING 01 NAME, SCORE
-    ranking: async(req, res) => {
+    rankingum: async(req, res) => {
         const qtd = req.params.qtd;
         const rankingList = await TorneioBlue.find({
             ranking: 1,
@@ -300,7 +300,7 @@ module.exports = {
             //msg: 'Sucesso ao realizar a consulta'
         });
     },
-    rankingscore: async(req, res) => {
+    rankingumscore: async(req, res) => {
         const qtd = req.params.qtd;
         const rankingList = await TorneioBlue.find({
             ranking: 1,
