@@ -375,6 +375,55 @@ module.exports = {
     },
     //#endregion
 
+    //#region ######################### GET RANKING 03 NAME, SCORE
+    rankingtres: async(req, res) => {
+        const qtd = req.params.qtd;
+        const rankingList = await TorneioBlue.find({
+            ranking: 3,
+            score: {$ne: 0}
+        })
+        .sort({ranking: 1})
+        .limit(parseInt(qtd))
+        .select({
+            nick: 1,
+            _id: 0
+        }).exec();
+        if(!rankingList) {
+            res.json({
+                data: [],
+                error: 'Erro ao realizar a consulta'
+            });
+            return;
+        }
+        res.json({
+            data: rankingList,
+        });
+    },
+    rankingtresscore: async(req, res) => {
+        const qtd = req.params.qtd;
+        const rankingList = await TorneioBlue.find({
+            ranking: 3,
+            score: {$ne: 0}
+        })
+        .sort({ranking: 1})
+        .limit(parseInt(qtd))
+        .select({
+            score: 1,
+            _id: 0
+        }).exec();
+        if(!rankingList) {
+            res.json({
+                data: [],
+                error: 'Erro ao realizar a consulta'
+            });
+            return;
+        }
+        res.json({
+            data: rankingList,
+        });
+    },
+    //#endregion
+
     //#endregion
 
     //#endregion

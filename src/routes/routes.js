@@ -64,6 +64,9 @@ router.get('/rankingumscoreTB/:qtd', torneiobluecontroller.rankingumscore);
 
 router.get('/rankingdoisTB/:qtd', torneiobluecontroller.rankingdois);
 router.get('/rankingdoisscoreTB/:qtd', torneiobluecontroller.rankingdoisscore);
+
+router.get('/rankingtresTB/:qtd', torneiobluecontroller.rankingtres);
+router.get('/rankingtresscoreTB/:qtd', torneiobluecontroller.rankingtresscore);
 //#endregion
 
 //#endregion
