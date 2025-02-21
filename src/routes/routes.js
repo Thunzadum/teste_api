@@ -61,6 +61,9 @@ router.put('/torneioblue/:nick/qtdregistroTB/:qtdregistroTB', torneiobluecontrol
 //#region ######################### RANKING 01 AO 10 NICK, SCORE
 router.get('/rankingumTB/:qtd', torneiobluecontroller.rankingum);
 router.get('/rankingumscoreTB/:qtd', torneiobluecontroller.rankingumscore);
+
+router.get('/rankingdoisTB/:qtd', torneiobluecontroller.rankingdois);
+router.get('/rankingdoisscoreTB/:qtd', torneiobluecontroller.rankingdoisscore);
 //#endregion
 
 //#endregion
