@@ -450,7 +450,7 @@ module.exports = {
     },
     rankingquatroscore: async(req, res) => {
         const qtd = req.params.qtd;
-        const rankingList = await Torneioblue.find({
+        const rankingList = await TorneioBlue.find({
             ranking: 4,
             score: {$ne: 0}
         })
@@ -779,6 +779,4 @@ module.exports = {
     //#endregion
 
     //#endregion
-
-    //
 }
