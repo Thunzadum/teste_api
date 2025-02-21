@@ -269,4 +269,64 @@ module.exports = {
             torneioblueInfoscoreTB
         });
     },
+
+
+    //#region ######################### GET RANKING 01 AO 100 NAME, SCORE
+
+    //#region ######################### GET RANKING 01 AO 10 NAME, SCORE
+
+    //#region ######################### GET RANKING 01 NAME, SCORE
+    ranking: async(req, res) => {
+        const qtd = req.params.qtd;
+        const rankingList = await TorneioBlue.find({
+            ranking: 1,
+            score: {$ne: 0}
+        })
+        .sort({ranking: 1})
+        .limit(parseInt(qtd))
+        .select({
+            nick: 1,
+            _id: 0
+        }).exec();
+        if(!rankingList) {
+            res.json({
+                data: [],
+                error: 'Erro ao realizar a consulta'
+            });
+            return;
+        }
+        res.json({
+            data: rankingList,
+            //msg: 'Sucesso ao realizar a consulta'
+        });
+    },
+    rankingscore: async(req, res) => {
+        const qtd = req.params.qtd;
+        const rankingList = await TorneioBlue.find({
+            ranking: 1,
+            score: {$ne: 0}
+        })
+        .sort({ranking: 1})
+        .limit(parseInt(qtd))
+        .select({
+            score: 1,
+            _id: 0
+        }).exec();
+        if(!rankingList) {
+            res.json({
+                data: [],
+                error: 'Erro ao realizar a consulta'
+            });
+            return;
+        }
+        res.json({
+            data: rankingList,
+            //msg: 'Sucesso ao realizar a consulta'
+        });
+    },
+    //#endregion
+
+    //#endregion
+
+    //#endregion
 }

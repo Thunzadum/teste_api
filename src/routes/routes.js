@@ -55,6 +55,16 @@ router.post('/qtdjogador', torneiobluecontroller.qtdjogador);
 router.put('/user/:nick/score/:score', torneiobluecontroller.score);
 router.put('/torneioblue/:participantes/qtdparticipantes/:qtdparticipantes', torneiobluecontroller.qtdparticipantes);
 router.put('/torneioblue/:nick/qtdregistroTB/:qtdregistroTB', torneiobluecontroller.qtdregistroTB);
+
+//#region ######################### RANKING 01 AO 100 NICK, SCORE
+
+//#region ######################### RANKING 01 AO 10 NICK, SCORE
+router.get('/ranking/:qtd', torneiobluecontroller.ranking);
+router.get('/rankingscore/:qtd', torneiobluecontroller.rankingscore);
+//#endregion
+
+//#endregion
+
 //#endregion
 
 module.exports = router;
