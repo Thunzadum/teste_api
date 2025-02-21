@@ -424,6 +424,358 @@ module.exports = {
     },
     //#endregion
 
+    //#region ######################### GET RANKING 04 NAME, SCORE
+    rankingquatro: async(req, res) => {
+        const qtd = req.params.qtd;
+        const rankingList = await TorneioBlue.find({
+            ranking: 4,
+            score: {$ne: 0}
+        })
+        .sort({ranking: 1})
+        .limit(parseInt(qtd))
+        .select({
+            nick: 1,
+            _id: 0
+        }).exec();
+        if(!rankingList) {
+            res.json({
+                data: [],
+                error: 'Erro ao realizar a consulta'
+            });
+            return;
+        }
+        res.json({
+            data: rankingList,
+        });
+    },
+    rankingquatroscore: async(req, res) => {
+        const qtd = req.params.qtd;
+        const rankingList = await Torneioblue.find({
+            ranking: 4,
+            score: {$ne: 0}
+        })
+        .sort({ranking: 1})
+        .limit(parseInt(qtd))
+        .select({
+            score: 1,
+            _id: 0
+        }).exec();
+        if(!rankingList) {
+            res.json({
+                data: [],
+                error: 'Erro ao realizar a consulta'
+            });
+            return;
+        }
+        res.json({
+            data: rankingList,
+        });
+    },
+    //#endregion
+
+    //#region ######################### GET RANKING 05 NAME, SCORE
+    rankingcinco: async(req, res) => {
+        const qtd = req.params.qtd;
+        const rankingList = await TorneioBlue.find({
+            ranking: 5,
+            score: {$ne: 0}
+        })
+        .sort({ranking: 1})
+        .limit(parseInt(qtd))
+        .select({
+            nick: 1,
+            _id: 0
+        }).exec();
+        if(!rankingList) {
+            res.json({
+                data: [],
+                error: 'Erro ao realizar a consulta'
+            });
+            return;
+        }
+        res.json({
+            data: rankingList,
+        });
+    },
+    rankingcincoscore: async(req, res) => {
+        const qtd = req.params.qtd;
+        const rankingList = await TorneioBlue.find({
+            ranking: 5,
+            score: {$ne: 0}
+        })
+        .sort({ranking: 1})
+        .limit(parseInt(qtd))
+        .select({
+            score: 1,
+            _id: 0
+        }).exec();
+        if(!rankingList) {
+            res.json({
+                data: [],
+                error: 'Erro ao realizar a consulta'
+            });
+            return;
+        }
+        res.json({
+            data: rankingList,
+        });
+    },
+    //#endregion
+
+    //#region ######################### GET RANKING 06 NAME, SCORE
+    rankingseis: async(req, res) => {
+        const qtd = req.params.qtd;
+        const rankingList = await TorneioBlue.find({
+            ranking: 6,
+            score: {$ne: 0}
+        })
+        .sort({ranking: 1})
+        .limit(parseInt(qtd))
+        .select({
+            nick: 1,
+            _id: 0
+        }).exec();
+        if(!rankingList) {
+            res.json({
+                data: [],
+                error: 'Erro ao realizar a consulta'
+            });
+            return;
+        }
+        res.json({
+            data: rankingList,
+        });
+    },
+    rankingseisscore: async(req, res) => {
+        const qtd = req.params.qtd;
+        const rankingList = await TorneioBlue.find({
+            ranking: 6,
+            score: {$ne: 0}
+        })
+        .sort({ranking: 1})
+        .limit(parseInt(qtd))
+        .select({
+            score: 1,
+            _id: 0
+        }).exec();
+        if(!rankingList) {
+            res.json({
+                data: [],
+                error: 'Erro ao realizar a consulta'
+            });
+            return;
+        }
+        res.json({
+            data: rankingList,
+        });
+    },
+    //#endregion
+
+    //#region ######################### GET RANKING 07 NAME, SCORE
+    rankingsete: async(req, res) => {
+        const qtd = req.params.qtd;
+        const rankingList = await TorneioBlue.find({
+            ranking: 7,
+            score: {$ne: 0}
+        })
+        .sort({ranking: 1})
+        .limit(parseInt(qtd))
+        .select({
+            nick: 1,
+            _id: 0
+        }).exec();
+        if(!rankingList) {
+            res.json({
+                data: [],
+                error: 'Erro ao realizar a consulta'
+            });
+            return;
+        }
+        res.json({
+            data: rankingList,
+        });
+    },
+    rankingsetescore: async(req, res) => {
+        const qtd = req.params.qtd;
+        const rankingList = await TorneioBlue.find({
+            ranking: 7,
+            score: {$ne: 0}
+        })
+        .sort({ranking: 1})
+        .limit(parseInt(qtd))
+        .select({
+            score: 1,
+            _id: 0
+        }).exec();
+        if(!rankingList) {
+            res.json({
+                data: [],
+                error: 'Erro ao realizar a consulta'
+            });
+            return;
+        }
+        res.json({
+            data: rankingList,
+        });
+    },
+    //#endregion
+
+    //#region ######################### GET RANKING 08 NAME, SCORE
+    rankingoito: async(req, res) => {
+        const qtd = req.params.qtd;
+        const rankingList = await TorneioBlue.find({
+            ranking: 8,
+            score: {$ne: 0}
+        })
+        .sort({ranking: 1})
+        .limit(parseInt(qtd))
+        .select({
+            nick: 1,
+            _id: 0
+        }).exec();
+        if(!rankingList) {
+            res.json({
+                data: [],
+                error: 'Erro ao realizar a consulta'
+            });
+            return;
+        }
+        res.json({
+            data: rankingList,
+        });
+    },
+    rankingoitoscore: async(req, res) => {
+        const qtd = req.params.qtd;
+        const rankingList = await TorneioBlue.find({
+            ranking: 8,
+            score: {$ne: 0}
+        })
+        .sort({ranking: 1})
+        .limit(parseInt(qtd))
+        .select({
+            score: 1,
+            _id: 0
+        }).exec();
+        if(!rankingList) {
+            res.json({
+                data: [],
+                error: 'Erro ao realizar a consulta'
+            });
+            return;
+        }
+        res.json({
+            data: rankingList,
+        });
+    },
+    //#endregion
+
+    //#region ######################### GET RANKING 09 NAME, SCORE
+    rankingnove: async(req, res) => {
+        const qtd = req.params.qtd;
+        const rankingList = await TorneioBlue.find({
+            ranking: 9,
+            score: {$ne: 0}
+        })
+        .sort({ranking: 1})
+        .limit(parseInt(qtd))
+        .select({
+            nick: 1,
+            _id: 0
+        }).exec();
+        if(!rankingList) {
+            res.json({
+                data: [],
+                error: 'Erro ao realizar a consulta'
+            });
+            return;
+        }
+        res.json({
+            data: rankingList,
+        });
+    },
+    rankingnovescore: async(req, res) => {
+        const qtd = req.params.qtd;
+        const rankingList = await TorneioBlue.find({
+            ranking: 9,
+            score: {$ne: 0}
+        })
+        .sort({ranking: 1})
+        .limit(parseInt(qtd))
+        .select({
+            score: 1,
+            _id: 0
+        }).exec();
+        if(!rankingList) {
+            res.json({
+                data: [],
+                error: 'Erro ao realizar a consulta'
+            });
+            return;
+        }
+        res.json({
+            data: rankingList,
+        });
+    },
+    //#endregion
+
+    //#region ######################### GET RANKING 10 NAME, SCORE
+    rankingdez: async(req, res) => {
+        const qtd = req.params.qtd;
+        const rankingList = await TorneioBlue.find({
+            ranking: 10,
+            score: {$ne: 0}
+        })
+        .sort({ranking: 1})
+        .limit(parseInt(qtd))
+        .select({
+            //ranking: 1,
+            //avatar: 1,
+            //nome: 1,
+            nick: 1,
+            //score: 1,
+            _id: 0
+        }).exec();
+        if(!rankingList) {
+            res.json({
+                data: [],
+                error: 'Erro ao realizar a consulta'
+            });
+            return;
+        }
+        res.json({
+            data: rankingList,
+            //msg: 'Sucesso ao realizar a consulta'
+        });
+    },
+    rankingdezscore: async(req, res) => {
+        const qtd = req.params.qtd;
+        const rankingList = await TorneioBlue.find({
+            ranking: 10,
+            score: {$ne: 0}
+        })
+        .sort({ranking: 1})
+        .limit(parseInt(qtd))
+        .select({
+            //ranking: 1,
+            //avatar: 1,
+            //nome: 1,
+            score: 1,
+            _id: 0
+        }).exec();
+        if(!rankingList) {
+            res.json({
+                data: [],
+                error: 'Erro ao realizar a consulta'
+            });
+            return;
+        }
+        res.json({
+            data: rankingList,
+            //msg: 'Sucesso ao realizar a consulta'
+        });
+    },
+    //#endregion
+
     //#endregion
 
     //#endregion

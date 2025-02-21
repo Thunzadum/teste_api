@@ -67,6 +67,27 @@ router.get('/rankingdoisscoreTB/:qtd', torneiobluecontroller.rankingdoisscore);
 
 router.get('/rankingtresTB/:qtd', torneiobluecontroller.rankingtres);
 router.get('/rankingtresscoreTB/:qtd', torneiobluecontroller.rankingtresscore);
+
+router.get('/rankingquatroTB/:qtd', torneiobluecontroller.rankingquatro);
+router.get('/rankingquatroscoreTB/:qtd', torneiobluecontroller.rankingquatroscore);
+
+router.get('/rankingcincoTB/:qtd', torneiobluecontroller.rankingcinco);
+router.get('/rankingcincoscoreTB/:qtd', torneiobluecontroller.rankingcincoscore);
+
+router.get('/rankingseisTB/:qtd', torneiobluecontroller.rankingseis);
+router.get('/rankingseisscoreTB/:qtd', torneiobluecontroller.rankingseisscore);
+
+router.get('/rankingseteTB/:qtd', torneiobluecontroller.rankingsete);
+router.get('/rankingsetescoreTB/:qtd', torneiobluecontroller.rankingsetescore);
+
+router.get('/rankingoitoTB/:qtd', torneiobluecontroller.rankingoito);
+router.get('/rankingoitoscoreTB/:qtd', torneiobluecontroller.rankingoitoscore);
+
+router.get('/rankingnoveTB/:qtd', torneiobluecontroller.rankingnove);
+router.get('/rankingnovescoreTB/:qtd', torneiobluecontroller.rankingnovescore);
+
+router.get('/rankingdezTB/:qtd', torneiobluecontroller.rankingdez);
+router.get('/rankingdezscoreTB/:qtd', torneiobluecontroller.rankingdezscore);
 //#endregion
 
 //#endregion
